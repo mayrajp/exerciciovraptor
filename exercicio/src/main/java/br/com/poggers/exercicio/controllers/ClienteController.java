@@ -36,13 +36,40 @@ public class ClienteController {
 	@Transactional
 	public void teste(Cliente cliente) {
 		clienteDao.save(cliente);
-		
-		
-		/*c.setNome("joao");
-		c.setCpf("123");
-		clienteDao.save(c);
-*/
 		System.out.println("teste");
 		result.redirectTo(this).lista();
 	}
+	
+	/*@Get("edita/{cliente.id}")
+	public Cliente edita(int id) {
+		return clienteDao.carrega(id);
+	}
+	*/
+	
+	
+	@Get("/remove/{id}")
+	@Transactional
+	public void excluir(int id) {
+		clienteDao.excluir(id);
+		result.redirectTo(this).lista();
+	}
+	
+	@Get("/edita")
+	public void edita() {
+		
+	}
+	
+	/*
+	@Get("/edita/{cliente.id}")
+	public Cliente edita(int id) {
+		return clienteDao.carrega(id);
+	}
+	#/
+	
+	/*public void remove(int id) {
+		Cliente cliente = clienteDao.carrega(id);
+		ClienteDao.remove(cliente);
+		result.redirectTo(this).lista();
+	}
+	*/
 }
