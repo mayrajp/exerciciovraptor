@@ -5,14 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="<c:url value='/cliente/teste'/>" method="POST">
 
-		Nome: <input type="text" name="cliente.nome"> 
-		CPF: <input type="text" name="cliente.cpf"> 
-		<input type="submit" value="Adicionar">
+<div class="container">
+
+<nav class="navbar navbar-light bg-light"> <span 
+			class="navbar-brand mb-0 h1">Cadastro Clientes</span> </nav>
+
+
+<form action="<c:url value='/cliente/teste'/>" method="POST" class="form-control">
+		Nome: <input type="text" class="form-control" name="cliente.nome"> 
+		CPF: <input type="text" class="form-control" name="cliente.cpf"> 
+		<a class="btn btn-primary" href="<c:url value='/cliente'/>">Cancelar</a>
+		<input class="btn btn-primary" type="submit" value="Adicionar">
 	</form>
+</div>
+	
 </body>
 </html>
