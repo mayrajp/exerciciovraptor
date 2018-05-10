@@ -32,6 +32,14 @@ public class ClienteController {
 		
 	}
 	
+	@Post("/alterar")
+	@Transactional
+	public void alterar(Cliente cliente) {
+		clienteDao.alterar(cliente);
+		System.out.println("esta entrando no metodo");
+		result.redirectTo(this).lista();
+	}
+	
 	@Post("/teste")
 	@Transactional
 	public void teste(Cliente cliente) {
@@ -39,13 +47,7 @@ public class ClienteController {
 		System.out.println("teste");
 		result.redirectTo(this).lista();
 	}
-	
-	/*@Get("edita/{cliente.id}")
-	public Cliente edita(int id) {
-		return clienteDao.carrega(id);
-	}
-	*/
-	
+
 	
 	@Get("/remove/{id}")
 	@Transactional
@@ -54,22 +56,15 @@ public class ClienteController {
 		result.redirectTo(this).lista();
 	}
 	
-	@Get("/edita")
-	public void edita() {
-		
+	@Get("/formEdita/{id}")
+	public void formEdita(int id) {
+		Cliente cliente = clienteDao.edita(id);
+		result.include("cliente",cliente);
 	}
 	
-	/*
-	@Get("/edita/{cliente.id}")
-	public Cliente edita(int id) {
-		return clienteDao.carrega(id);
-	}
-	#/
 	
-	/*public void remove(int id) {
-		Cliente cliente = clienteDao.carrega(id);
-		ClienteDao.remove(cliente);
-		result.redirectTo(this).lista();
-	}
-	*/
+	
+	
+	
+	
 }

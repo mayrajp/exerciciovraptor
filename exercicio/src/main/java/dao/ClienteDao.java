@@ -30,10 +30,23 @@ public class ClienteDao {
 	}
 
 	public void excluir(int id) {
-		//manager.getTransaction().begin();
 		Cliente cliente = manager.find(Cliente.class, id);
 		System.out.println("pegando esse cliente" + cliente.getNome());
 		manager.remove(cliente);
-		//manager.close();
+		
 	}
+	
+	public Cliente edita(int id) {
+		Cliente cliente = manager.find(Cliente.class, id);
+		return cliente;
+	}
+	
+	public void alterar(Cliente cliente) {
+		Cliente cAtual = manager.find(Cliente.class, cliente.getId());
+		cAtual.setNome(cliente.getNome());
+		cAtual.setCpf(cliente.getCpf());
+		manager.persist(cAtual);
+	}
+	
+
 }

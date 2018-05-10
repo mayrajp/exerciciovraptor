@@ -11,13 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!--  <h1>Lista de clientes</h1>
-	<c:forEach items="${listaCliente}" var="cliente">
-		<p>ID ${cliente.id} - NOME: ${cliente.nome}</p>
-		<input type="submit" value="Excluir">
-		<input type="submit" value="Alterar">
-	</c:forEach>
-    -->
+	
     
     <div>
      <table class="table">
@@ -34,7 +28,7 @@
 		<th>${cliente.id}</th>
 		<th>${cliente.nome}</th>
 		<th>${cliente.cpf}</th>
-		<th><a href="<c:url value='/cliente/edita/${cliente.id}'/>">Alterar</a></th>
+		<th><a href="<c:url value='/cliente/formEdita/${cliente.id}'/>">Alterar</a></th>
 		<th><a href="<c:url value='/cliente/remove/${cliente.id}'/>">Remover</a></th>		
     </tr>
     </c:forEach>
