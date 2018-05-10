@@ -31,7 +31,6 @@ public class ClienteDao {
 
 	public void excluir(int id) {
 		Cliente cliente = manager.find(Cliente.class, id);
-		System.out.println("pegando esse cliente" + cliente.getNome());
 		manager.remove(cliente);
 		
 	}
